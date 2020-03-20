@@ -3,6 +3,7 @@ import './Monsters.css';
 import { CardList } from './components/card-list/card-list.component';
 import { SearchBox } from './components/search-box/search-box.component';
 
+import MONSTERS_DATA from './monsters-data.json';
 
 class Monsters extends React.Component {
 
@@ -66,10 +67,16 @@ class Monsters extends React.Component {
 
   // Life Cycle Method called whenever the page is rendered.
   componentDidMount() {
+    
     //fetch("https://jsonplaceholder.typicode.com/users")
-    fetch("monsters-rolodex.json")   // used my own file to make customizations to data
-    .then(response => response.json())
-    .then(users => this.setState({monsters:users}));
+    //.then(response => response.json())
+    //.then(users => this.setState({monsters:users}));
+
+    // I decided to use my own data insted of the websites so I can customize
+    this.setState({monsters: MONSTERS_DATA}
+      //, () => (console.log("monsters.json", this.state.monsters))
+      );
+
   }
 }
 
